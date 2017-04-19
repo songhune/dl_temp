@@ -5,21 +5,24 @@ tf.set_random_seed(777)  # for reproducibility
 x1_data = [73., 93., 89., 96., 73.]
 x2_data = [80., 88., 91., 98., 66.]
 x3_data = [75., 93., 90., 100., 70.]
-
+#이걸 한번에 묶는 방법
+'''x_data = [[73.,80,75]] 세로행을 하나씩 묶어서 정렬하고 Y축은 하나하나에 [[]]이중으로 넣는다
+'''
 y_data = [152., 185., 180., 196., 142.]
 
 # placeholders for a tensor that will be always fed.
 x1 = tf.placeholder(tf.float32)
 x2 = tf.placeholder(tf.float32)
 x3 = tf.placeholder(tf.float32)
-
+'''여기서도 마찬가지 X는 변수를 사용하되, 사이즈는 n개(여기서는 사람 수), 변수 개수(여기서는 중간고사들)
+'''
 Y = tf.placeholder(tf.float32)
 
 w1 = tf.Variable(tf.random_normal([1]), name='weight1')
 w2 = tf.Variable(tf.random_normal([1]), name='weight2')
 w3 = tf.Variable(tf.random_normal([1]), name='weight3')
 b = tf.Variable(tf.random_normal([1]), name='bias')
-
+#weight는 같이 갈 수 있다...
 hypothesis = x1 * w1 + x2 * w2 + x3 * w3 + b
 print(hypothesis)
 
